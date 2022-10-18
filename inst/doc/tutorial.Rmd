@@ -1,0 +1,67 @@
+---
+title: "tutorial"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+load("my_tiktokads_data.RData")
+```
+
+```{r setup}
+library(tiktokadsR)
+
+library(dplyr)
+library(ggplot2)
+```
+
+
+## Goal
+
+The goal here is to outline in a couple of paragraphs and few lines of code some simple ways in which we can use the [Windsor.ai](https://windsor.ai/) API and `R` package `tiktokadsR` to gain insights into marketing campaign performance in TikTok Ads. The nice thing about Windsor.ai is that you can have all of your marketing channels aggregating in a single place and then access all data at once using this package. In this case, however, the package is focused on getting data from TikTok Ads campaings. Of course, once the data is in `R` you can do much more than the examples below, and work on analysis, predictions or dashboards.
+
+## Getting data from TikTok ads into R
+
+After we create an account at  `Windsor.ai`  and obtain an API key, collecting our data from Windsor to R is as easy as:
+
+
+```{r, eval = FALSE}
+
+my_tiktokads_data <-
+  fetch_tiktokads(api_key = "your api key",
+           date_from = Sys.Date()-100,
+           date_to = Sys.Date(),
+           fields = c("campaign", "clicks",
+                      "spend", "impressions", "date")) 
+```
+
+This code will collect data for the last 100 days. Lets take a look at the data we just downloaded to get a better idea about the structure and type of information included. 
+
+```{r}
+str(my_tiktokads_data)
+```
+
+## Analyzing our TikTok  and TikTok ad campaign data 
+
+Now we can analyze our TikTok Ads data. For instance, let's compare the two campaings we have to see which one performed better the last 100 days. 
+
+```{r}
+ggplot(my_tiktokads_data, aes(y = clicks, fill = campaign)) + geom_boxplot()
+```
+
+It looks like APAC campaign is performing better than  UK&CO in number of clicks. Now let's see if this difference is statistically significant by using generalized linear models, as our variable response is number of clicks, which have a poisson distribution.
+
+```{r}
+lmod <- glm(clicks ~ campaign, data = my_tiktokads_data, family = "poisson")
+summary(lmod)
+```
+
+We can see that differences among campaings are statistically significant and that the campaign UK&CO have a mean that is 0.79 lower than the APAC campaign.

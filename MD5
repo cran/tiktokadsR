@@ -1,0 +1,15 @@
+99a96eb14dc7d71180a7661bfd259600 *DESCRIPTION
+c1be14587eb0ad1c79e769bacdbb082c *NAMESPACE
+97b65600520b994710ad772e0db7e8ae *NEWS.md
+6b7ef55965a743643e3119969ecb003d *R/fetch_tiktokads.R
+eb3891e27d95df893fd370bdbe6ed8bc *R/my_tiktokads_data.R
+f9a94861fe14db61b89769d0e7edfbed *README.md
+77001896a77d1cb481ff42b2a5411b1a *build/vignette.rds
+168b1bc945d9075332c2b784dd8a4ab4 *data/my_tiktokads_data.RData
+48cd04ff985b05105b9a5eca18c0b408 *inst/doc/tutorial.R
+08ed13a6a420afb7d94eec0944078b1d *inst/doc/tutorial.Rmd
+1af1ca0174ea2255faa73b56ca216eb3 *inst/doc/tutorial.html
+1ec28f40ac629450f999900a03a9f20f *man/fetch_tiktokads.Rd
+085ca23c78cb7672d652f32f23d394ab *man/my_tiktokads_data.Rd
+168b1bc945d9075332c2b784dd8a4ab4 *vignettes/my_tiktokads_data.RData
+08ed13a6a420afb7d94eec0944078b1d *vignettes/tutorial.Rmd

@@ -1,0 +1,25 @@
+Type: Package
+Package: tiktokadsR
+Title: Access to TikTok Ads via the 'Windsor.ai' API
+Version: 0.1.0
+Authors@R: c(
+    person("Pablo", "Sanchez", email = "pablosama@outlook.es", role = c("cre","aut")),
+    person("Windsor.ai", email = "admin@windsor.ai", role = "cph"))
+Description: Collect  marketing data from TikTok Ads using the 'Windsor.ai' API <https://windsor.ai/api-fields/>.
+License: GPL-3
+URL: https://windsor.ai/
+Depends: R (>= 3.5.0)
+Imports: jsonlite (>= 1.7.2)
+Suggests: knitr, rmarkdown, dplyr, ggplot2, tidyr, curl
+VignetteBuilder: knitr
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+RoxygenNote: 7.2.1
+NeedsCompilation: no
+Packaged: 2022-10-17 16:31:23 UTC; pablo
+Author: Pablo Sanchez [cre, aut],
+  Windsor.ai [cph]
+Maintainer: Pablo Sanchez <pablosama@outlook.es>
+Repository: CRAN
+Date/Publication: 2022-10-18 06:40:02 UTC
